@@ -1,0 +1,22 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#azureml data import 
+subscription_id = '79c05eac-dadd-4fc9-be16-acdb5c068bb9'
+resource_group = 'skh-ml-rg049'
+workspace_name = 'SKH-ML-WS049'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+dataset1 = Dataset.get_by_name(workspace, name='POSTING_MASTER')
+dataset1.to_pandas_dataframe()
+
+#매미 전처리
+df1=dataset1.to_pandas_dataframe()
+df1.head()
+df1.info()
+df1.shape
+df1.isnull().sum()
+
